@@ -9,6 +9,22 @@ export default function WeatherApp() {
   const [dataClima, setDataClima] = useState(null);
   const [errorMensaje, setErrorMensaje] = useState(null);
 
+  /*Styles*/
+  const [img, setImg] = useState("weather");
+  const imgUrl = `url("../../images/${img}.jpg")`;
+
+  const appStyle = {
+    width: "100vw",
+    height: "100vh",
+    fontFamily: "Oswald, sans-serif",
+    textAlign: "center",
+    backgroundImage: imgUrl,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    color: "#000000",
+  };
+
   const onInputChange = (event) => {
     setCiudad(event.target.value);
   };
@@ -26,6 +42,7 @@ export default function WeatherApp() {
         throw new Error("Not city found");
       }
       const data = await response.json();
+      setImg(data.weather[0].main.toLowerCase());
       setDataClima(data);
       setErrorMensaje(null);
     } catch (error) {
@@ -36,24 +53,38 @@ export default function WeatherApp() {
   };
 
   return (
-    <div className="container-app">
-      <div className="container">
-        <h1>Aplicacion Clima</h1>
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="ciudad" required onChange={onInputChange} />
-          <button type="submit">Buscar</button>
-        </form>
-        {dataClima && (
-          <div className="container">
-            <h2>{dataClima.name}</h2>
-            <p>Temperatura: {parseInt(dataClima?.main?.temp - difKelvin)}ºC</p>
-            <p>Condición meteorológica: {dataClima?.weather[0]?.description}</p>
-            <img
-              src={`https://openweathermap.org/img/wn/${dataClima?.weather[0]?.icon}@2x.png`}
+    <div style={appStyle}>
+      <div className="container-app">
+        <div className="container">
+          <h1>
+            <a href="/">WEATHER APP</a>
+          </h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="ciudad"
+              placeholder="Search a city"
+              required
+              onChange={onInputChange}
             />
-          </div>
-        )}
-        {errorMensaje && <p>{errorMensaje}</p>}
+            <button type="submit">Buscar</button>
+          </form>
+          {dataClima && (
+            <div className="weather-container">
+              <h2>{dataClima.name}</h2>
+              <p className="weather-temp">
+                Temperatura: {parseInt(dataClima?.main?.temp - difKelvin)}ºC
+              </p>
+              <p className="weather-desc">
+                {(dataClima?.weather[0]?.description).toUpperCase()}
+              </p>
+              <img
+                src={`https://openweathermap.org/img/wn/${dataClima?.weather[0]?.icon}@2x.png`}
+              />
+            </div>
+          )}
+          {errorMensaje && <p>{errorMensaje}</p>}
+        </div>
       </div>
     </div>
   );
