@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { appStyle } from "./helpers/appStyle";
+import appStyle from "./helpers/appStyle";
 import SearchForm from "./components/SearchForm";
 import DataClima from "./components/DataClima";
 
@@ -9,7 +9,7 @@ export default function WeatherApp() {
   const [errorMensaje, setErrorMensaje] = useState(null);
 
   const [img, setImg] = useState("weather");
-  const imgUrl = `url("../../images/${img}.jpg")`;
+  const imgUrl = `url("images/${img}.jpg")`;
 
   return (
     <div style={appStyle(imgUrl)}>

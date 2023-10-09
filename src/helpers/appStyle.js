@@ -11,4 +11,4 @@ const appStyle = (imgUrl) => ({
     backdropFilter: `blur(7px)`,
 });
 
-export {appStyle};
+export default appStyle;
