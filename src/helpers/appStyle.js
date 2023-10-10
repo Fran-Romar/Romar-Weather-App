@@ -1,5 +1,5 @@
 const appStyle = (imgUrl) => ({
-    width: "100vw",
+    width: "100%",
     height: "100vh",
     fontFamily: "Oswald, sans-serif",
     textAlign: "center",
