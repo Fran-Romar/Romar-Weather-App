@@ -147,7 +147,7 @@ button:hover{
   }
 }
 
-@media screen and (orientation: landscape) and (max-height:400px){
+@media screen and (orientation: landscape) and (max-height:575px){
   .container-app{
     display: none;
   }
