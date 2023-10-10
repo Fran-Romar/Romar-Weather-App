@@ -10,10 +10,15 @@ export default function WeatherApp() {
   const [errorMensaje, setErrorMensaje] = useState(null);
 
   const [img, setImg] = useState("weather");
-  const imgUrl = `url("../../images/${img}.jpg")`;
+  const imgUrl = `url("../images/${img}.jpg")`;
 
   return (
     <div style={appStyle(imgUrl)}>
+      <div className="container-landscape">
+        <i className="fa fa-cloud"></i>
+        <h3>Flip the phone over and enjoy the vertical view</h3>
+        <p>Quick, go look for the weather in your city now</p>
+      </div>
       <div className="container">
         <Row>
           <Col md="8" className="container-app">
