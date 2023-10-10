@@ -10,7 +10,7 @@ export default function WeatherApp() {
   const [errorMensaje, setErrorMensaje] = useState(null);
 
   const [img, setImg] = useState("weather");
-  const imgUrl = `url("${img}.png")`;
+  const imgUrl = `url("${img}.jpg")`;
 
   return (
     <div style={appStyle(imgUrl)}>

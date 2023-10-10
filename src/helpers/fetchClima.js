@@ -12,6 +12,7 @@ export const fetchClima = async (setImg, setDataClima, setErrorMensaje, ciudad) 
 
       setImg(data.weather[0].main.toLowerCase());
       setDataClima(data);
+      console.log(data)
       setErrorMensaje(null);
     } catch (error) {
       console.log(error);
