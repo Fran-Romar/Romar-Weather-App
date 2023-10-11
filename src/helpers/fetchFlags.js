@@ -10,6 +10,7 @@ export const fetchFlags = async (setFlag, country) => {
         for(let i of data){
             if(i.cca2 === country){
                 setFlag(i.flags.png);
+                break;
             }
         }
     }catch(error){

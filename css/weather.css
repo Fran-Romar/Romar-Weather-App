@@ -71,7 +71,7 @@ p{
 
 .weather-search{
   margin: 0;
-  font-size: 110%;
+  font-size: 120%;
   font-weight: 500;
 }
 
@@ -87,7 +87,7 @@ p{
 }
 
 .weather-temp{
-  font-size: 110%;
+  font-size: 125%;
   margin-bottom: 6%;
   font-style: italic;
 }
