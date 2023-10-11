@@ -75,6 +75,17 @@ p{
   font-weight: 500;
 }
 
+.country-flag{
+  height: 45px;
+  width: 45px;
+  border: 2px solid black;
+  border-radius: 100%;
+  margin-right: 2%;
+  margin-bottom: -4%;
+  margin-left: -2%;
+  box-shadow: 0 0 4 px black;
+}
+
 .weather-temp{
   font-size: 110%;
   margin-bottom: 6%;

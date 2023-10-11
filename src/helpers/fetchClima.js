@@ -1,7 +1,9 @@
+import { fetchFlags } from '../helpers/fetchFlags';
+
 const urlBase = "https://api.openweathermap.org/data/2.5/weather";
 const API_KEY = "55118ddd755b760e6675758a815cbb0d";
 
-export const fetchClima = async (setImg, setDataClima, setErrorMensaje, ciudad) => {
+export const fetchClima = async (setImg, setDataClima, setErrorMensaje, ciudad, setFlag) => {
     try {
       const response = await fetch(`${urlBase}?q=${ciudad}&appid=${API_KEY}`);
 
@@ -9,10 +11,10 @@ export const fetchClima = async (setImg, setDataClima, setErrorMensaje, ciudad) 
         throw new Error("Not city found");
       }
       const data = await response.json();
+      fetchFlags(setFlag, data.sys.country);
 
       setImg(data.weather[0].main.toLowerCase());
       setDataClima(data);
-      console.log(data)
       setErrorMensaje(null);
     } catch (error) {
       console.log(error);

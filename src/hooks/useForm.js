@@ -6,9 +6,9 @@ export default function useForm(){
         setCiudad(e.target.value);
     };
     
-    const handleSubmit = (e, setImg, setDataClima, setErrorMensaje, ciudad) => {
+    const handleSubmit = (e, setImg, setDataClima, setErrorMensaje, ciudad, setFlag) => {
         e.preventDefault();
-        fetchClima(setImg, setDataClima, setErrorMensaje, ciudad);
+        fetchClima(setImg, setDataClima, setErrorMensaje, ciudad, setFlag);
     };
 
     return {

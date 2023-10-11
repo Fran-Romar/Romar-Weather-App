@@ -9,6 +9,8 @@ export default function WeatherApp() {
   const [dataClima, setDataClima] = useState(null);
   const [errorMensaje, setErrorMensaje] = useState(null);
 
+  const [flag, setFlag] = useState(null);
+
   const [img, setImg] = useState("weather");
   const imgUrl = `url("${img}.jpg")`;
 
@@ -33,10 +35,12 @@ export default function WeatherApp() {
                 setErrorMensaje={setErrorMensaje}
                 ciudad={ciudad}
                 setCiudad={setCiudad}
+                setFlag={setFlag}
               ></SearchForm>
               <DataClima
                 dataClima={dataClima}
                 errorMensaje={errorMensaje}
+                flag={flag}
               ></DataClima>
             </div>
           </Col>

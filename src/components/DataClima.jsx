@@ -1,13 +1,16 @@
 import React from "react";
 
-export default function DataClima({ dataClima, errorMensaje }) {
+export default function DataClima({ dataClima, errorMensaje, flag }) {
   const difKelvin = 273.15;
 
   return (
     <>
       {dataClima && (
         <div>
-          <h2>{dataClima.name}</h2>
+          <h2>
+            {flag && <img className="country-flag" src={flag}></img>}
+            {dataClima.name}
+          </h2>
           <p className="weather-temp">
             Temperatura: {parseInt(dataClima?.main?.temp - difKelvin)}ºC
           </p>

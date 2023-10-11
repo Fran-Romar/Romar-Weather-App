@@ -7,13 +7,14 @@ export default function SearchForm({
   setErrorMensaje,
   ciudad,
   setCiudad,
+  setFlag,
 }) {
   const { onInputChange, handleSubmit } = useForm();
 
   return (
     <form
       onSubmit={(e) =>
-        handleSubmit(e, setImg, setDataClima, setErrorMensaje, ciudad)
+        handleSubmit(e, setImg, setDataClima, setErrorMensaje, ciudad, setFlag)
       }
     >
       <input
